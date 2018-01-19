@@ -8,16 +8,24 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ConsumerPage } from '../pages/consumer/consumer';
+import { CreatorPage } from '../pages/creator/creator';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LoginPage } from "../pages/login/login";
+import { RewardzPage } from "../pages/rewardz/rewardz";
+
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    ConsumerPage
+    LoginPage,
+    ConsumerPage,
+    CreatorPage,
+    RewardzPage,
   ],
   imports: [
     BrowserModule,
@@ -28,14 +36,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    ConsumerPage
+    LoginPage,
+    ConsumerPage,
+    CreatorPage,
+    RewardzPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AppMinimize,
-    Hotspot, 
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Hotspot,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class
+  AppModule { }

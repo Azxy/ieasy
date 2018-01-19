@@ -7,7 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>consumer</ion-title>
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Wifi Scanner</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,11 +18,12 @@
 
 <ion-content padding>
  <ion-list >
-    <ion-item *ngFor="let x of data" (tap)="pass(x.SSID)">
+    <ion-item *ngFor="let x of data" (tap)="selectWifi(x.SSID)">
       <ion-avatar item-start>
         <img src="assets/img/logo.png">
       </ion-avatar >
       <p>{{x.SSID}}</p>
     </ion-item>
+    {{logs}}
   </ion-list>
 </ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "ieasy",
+  "app_id": "626609f3",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

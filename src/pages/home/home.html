@@ -4,21 +4,29 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    Latitude {{location?.coords?.latitude}}, Longitude {{location?.coords?.longitude}}
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
   <h3>Share unused data</h3>
 
   <p>
-    <button ion-button full>ieasy Share</button>
+    <button ion-button full (click)="loadIEasyShare()">IEasy Share</button>
   </p>
   Total data provided: #### MB
 
-  <h3>Find ieasy Provider</h3>
+  <h3>Find IEasy Provider</h3>
 
   <p>
-    <button ion-button full>ieasy Connect</button>
+    <button ion-button full (click)="loadIEasyConnect()">IEasy Connect</button>
   </p>
   Total data consumed: #### MB
+
+
+  <p>
+    <button ion-button (click)="getLoc()">Get My Location</button>
+  </p>
+  
 </ion-content>

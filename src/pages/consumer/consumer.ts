@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot';
 import { AppMinimize } from '@ionic-native/app-minimize';
+import { NetworkInterface } from '@ionic-native/network-interface';
 
 /**
  * Generated class for the ConsumerPage page.
@@ -19,10 +20,27 @@ export class ConsumerPage {
 
   data: any = [{ SSID: 'AA' }, { SSID: 'BB' }];
   logs: any = 'started';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private appMinimize: AppMinimize, private hotspot: Hotspot, public alertCtrl: AlertController) {
+  
+  wifiIPAddress:any;
+  carrierIPAddress:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+     private platform: Platform, private appMinimize: AppMinimize, 
+     private hotspot: Hotspot, public alertCtrl: AlertController,
+     private networkInterface: NetworkInterface) {
     this.platform.registerBackButtonAction(() => {
       this.appMinimize.minimize();
     });
+    this.networkInterfaceAddress();
+  }
+
+  networkInterfaceAddress(){
+   // this.networkInterface.getWiFiIPAddress(function (ip) { alert(ip); });
+   console.log(this.networkInterface.getWiFiIPAddress());
+   console.log(this.networkInterface.getCarrierIPAddress());
+   this.wifiIPAddress=this.networkInterface.getWiFiIPAddress();
+   this.carrierIPAddress=this.networkInterface.getCarrierIPAddress();
+   alert( this.networkInterface.getCarrierIPAddress())
   }
 
   ionViewDidLoad() {

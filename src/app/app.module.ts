@@ -3,12 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AppMinimize } from '@ionic-native/app-minimize';
 import { Hotspot } from '@ionic-native/hotspot';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ConsumerPage } from '../pages/consumer/consumer';
 import { CreatorPage } from '../pages/creator/creator';
+import { NetworkInterface } from '@ionic-native/network-interface';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,6 +48,8 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     SplashScreen,
     AppMinimize,
     Hotspot,
+    Geolocation,
+    NetworkInterface,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

@@ -51,7 +51,6 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-networkinterface": {},
-    
       "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},

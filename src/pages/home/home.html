@@ -4,7 +4,9 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    Latitude {{location?.coords?.latitude}}, Longitude {{location?.coords?.longitude}}
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
@@ -21,4 +23,10 @@
     <button ion-button full>ieasy Connect</button>
   </p>
   Total data consumed: #### MB
+
+
+  <p>
+    <button ion-button full (click)="getLoc()">Get Location</button>
+  </p>
+  
 </ion-content>

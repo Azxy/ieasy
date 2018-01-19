@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AppMinimize } from '@ionic-native/app-minimize';
 import { Hotspot } from '@ionic-native/hotspot';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -43,6 +44,7 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     SplashScreen,
     AppMinimize,
     Hotspot,
+    Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

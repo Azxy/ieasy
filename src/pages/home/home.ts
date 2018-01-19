@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { CreatorPage } from '../creator/creator';
+import { ConsumerPage } from '../consumer/consumer';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -32,5 +35,17 @@ export class HomePage {
       // data.coords.latitude
       // data.coords.longitude
     });
+  }
+
+  loadIEasyShare(){
+    this.navCtrl.push(CreatorPage,{
+      val: 'creator'
+    })
+  }
+
+  loadIEasyConnect(){
+    this.navCtrl.push(ConsumerPage,{
+      val: 'consumer'
+    })
   }
 }

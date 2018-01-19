@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage} from '../pages/login/login';
 import { ConsumerPage } from '../pages/consumer/consumer';
+import { CreatorPage } from '../pages/creator/creator';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,6 +28,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Wifi Scanner', component: ConsumerPage },
+      { title: 'hotspot', component: CreatorPage },
     ];
 
   }

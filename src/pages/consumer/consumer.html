@@ -18,7 +18,7 @@
 
 <ion-content padding>
  <ion-list >
-    <ion-item *ngFor="let x of data" (tap)="pass(x.SSID)">
+    <ion-item *ngFor="let x of data" (tap)="selectWifi(x.SSID)">
       <ion-avatar item-start>
         <img src="assets/img/logo.png">
       </ion-avatar >

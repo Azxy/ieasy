@@ -17,7 +17,8 @@ import { AppMinimize } from '@ionic-native/app-minimize';
 })
 export class ConsumerPage {
 
-  data: any;
+  data: any=[{SSID:'AA'},{SSID:'BB'}];
+  logs:any='started';
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private appMinimize: AppMinimize, private hotspot: Hotspot, public alertCtrl: AlertController) {
     this.platform.registerBackButtonAction(() => {
       this.appMinimize.minimize();
@@ -26,9 +27,10 @@ export class ConsumerPage {
 
   ionViewDidLoad() {
     if (this.platform.is('cordova')) {
-      this.hotspot.scanWifi().then((networks: Array<any>) => {
+      this.hotspot.scanWifi().then((networks: Array<HotspotNetwork>) => {
 
         this.data = networks;
+        this.logs = networks;
         console.log(".........hotspot..........", JSON.stringify(networks));
       });
     }

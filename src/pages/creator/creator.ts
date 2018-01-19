@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot';
-import { AppMinimize } from '@ionic-native/app-minimize';
+import { AppMinimize } from '@ionic-native/app-minimize'
 
 /**
- * Generated class for the ConsumerPage page.
+ * Generated class for the CreatorPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,10 +12,10 @@ import { AppMinimize } from '@ionic-native/app-minimize';
 
 @IonicPage()
 @Component({
-  selector: 'page-consumer',
-  templateUrl: 'consumer.html',
+  selector: 'page-creator',
+  templateUrl: 'creator.html',
 })
-export class ConsumerPage {
+export class CreatorPage {
 
   data: any = [{ SSID: 'AA' }, { SSID: 'BB' }];
   logs: any = 'started';
@@ -27,24 +27,36 @@ export class ConsumerPage {
 
   ionViewDidLoad() {
     if (this.platform.is('cordova')) {
-      this.hotspot.scanWifi().then((networks: Array<HotspotNetwork>) => {
-        this.data = networks;
-        this.logs = networks;
-        console.log(".........hotspot..........", JSON.stringify(networks));
-      });
+      let SSID = 'Hackthon' + Math.round(Math.random() * 100) + 'Wifi' + Math.round(Math.random() * 100);
+      let mode = 'WPA_PSK';
+      let password = Math.round(Math.random() * 100) + 'Gs' + Math.round(Math.random() * 100) + '&@' + Math.round(Math.random() * 100);
+      this.hotspot.createHotspot(SSID, mode, password)
+        .then((response) => {
+          this.logs = response;
+          console.log(".........hotspot..........", response);
+        });
     }
 
   }
 
-  selectWifi(SSID) {
+  stopHotspot() {
     if (this.platform.is('cordova')) {
+      this.hotspot.stopHotspot()
+        .then((response: boolean) => {
+          this.logs = response;
+          console.log(".........hotspot..........", response);
+        });
+    }
+  }
+
+  stopHotspot1() {
       let prompt = this.alertCtrl.create({
-        title: SSID,
-        message: "Fetch the secure password",
+        title: 'Hackton12312@',
+        message: "Enter a name for this new album you're so keen on adding",
         inputs: [
           {
-            name: 'password',
-            placeholder: 'password'
+            name: 'title',
+            placeholder: 'Title'
           },
         ],
         buttons: [
@@ -56,25 +68,17 @@ export class ConsumerPage {
           },
           {
             text: 'Save',
-            handler: dataToSave => {
+            handler: Password => {
 
-              console.log("password", dataToSave.password, SSID);
-              this.hotspot.connectToWifi(SSID, dataToSave.password)
-                .then((data) => {
-
-                  this.logs = data;
-                  console.log(".........hotspot..........", data);
-                }, (error) => {
-                  console.log(".........hotspot..........", error);
-                })
+              console.log("password", Password.title, 'Hackton12312@');
+              
 
             }
           }
         ]
       });
       prompt.present();
-
-    }
   }
+
 
 }

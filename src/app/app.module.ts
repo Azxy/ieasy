@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ConsumerPage } from '../pages/consumer/consumer';
+import { CreatorPage } from '../pages/creator/creator';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,7 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     ListPage,
     LoginPage,
     ConsumerPage,
+    CreatorPage,
     RewardzPage,
   ],
   imports: [
@@ -37,6 +39,7 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     ListPage,
     LoginPage,
     ConsumerPage,
+    CreatorPage,
     RewardzPage,
   ],
   providers: [

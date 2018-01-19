@@ -28,8 +28,8 @@ export class MyApp {
       { title: 'Login', component: LoginPage },
       { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage },
-      { title: 'Wifi Scanner', component: ConsumerPage },
-      { title: 'hotspot', component: CreatorPage },
+      { title: 'IEASY Share', component: CreatorPage },
+      { title: 'IEASY Connect', component: ConsumerPage },
       { title: 'Rewardz', component: RewardzPage },
 
     ];

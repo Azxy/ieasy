@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ConsumerPage } from '../pages/consumer/consumer';
 import { CreatorPage } from '../pages/creator/creator';
+import { NetworkInterface } from '@ionic-native/network-interface';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,6 +49,7 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     AppMinimize,
     Hotspot,
     Geolocation,
+    NetworkInterface,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

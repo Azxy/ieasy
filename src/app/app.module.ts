@@ -12,6 +12,9 @@ import { ConsumerPage } from '../pages/consumer/consumer';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from "../pages/login/login";
+import { RewardzPage } from "../pages/rewardz/rewardz";
+
+
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { LoginPage } from "../pages/login/login";
     ListPage,
     LoginPage,
     ConsumerPage,
+    RewardzPage,
   ],
   imports: [
     BrowserModule,
@@ -32,14 +36,15 @@ import { LoginPage } from "../pages/login/login";
     ListPage,
     LoginPage,
     ConsumerPage,
+    RewardzPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AppMinimize,
-    Hotspot, 
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Hotspot,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class 
-AppModule {}
+export class
+  AppModule { }

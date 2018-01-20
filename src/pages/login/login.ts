@@ -19,15 +19,15 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private network: Network, private datastorageProvider: DatastorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private network: Network, public datastorageProvider: DatastorageProvider) {
     this.network.onConnect()
       .subscribe((obj: any) => {
-        this.datastorageProvider.setdataObj('ConnectedTime', obj);
+        this.datastorageProvider.setdataObj('ConnectedTime', obj.timeStamp);
         console.log(obj);
       });
     this.network.onDisconnect()
       .subscribe((obj: any) => {
-        this.datastorageProvider.setdataObj('disconnectedTime', obj);
+        this.datastorageProvider.setdataObj('disconnectedTime', obj.timeStamp);
         console.log(obj);
       });
   }

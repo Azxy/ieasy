@@ -10,4 +10,7 @@ import { RewardzPage } from './rewardz';
     IonicPageModule.forChild(RewardzPage),
   ],
 })
-export class RewardzPageModule {}
+export class RewardzPageModule { 
+
+
+}

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -10,9 +9,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DatastorageProvider {
 
-  dataObj: any;
+  dataObj: any = {};
 
-  constructor(public http: HttpClient) {
+  constructor() {
     console.log('Hello DatastorageProvider Provider');
   }
 
@@ -22,6 +21,14 @@ export class DatastorageProvider {
 
   getdataObj(key:string) {
     return this.dataObj[key];
+  }
+
+  getdataCounsumed(): any{
+    return this.dataObj.ConnectedTime && this.dataObj.disconnectedTime ? (this.dataObj.ConnectedTime - this.dataObj.disconnectedTime)*0.001 : 0;
+  }
+
+  getdataUsed(): any{
+    return this.dataObj.ConnectedTime && this.dataObj.disconnectedTime ?(this.dataObj.ConnectedTime - this.dataObj.disconnectedTime)*0.001 : 0;
   }
 
 }

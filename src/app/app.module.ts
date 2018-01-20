@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AppMinimize } from '@ionic-native/app-minimize';
 import { Hotspot } from '@ionic-native/hotspot';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HttpClient } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -53,6 +54,7 @@ import { DatastorageProvider } from '../providers/datastorage/datastorage';
     Geolocation,
     NetworkInterface,
     Network,
+    HttpClient,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DatastorageProvider
   ]

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 import { Hotspot, HotspotNetwork } from '@ionic-native/hotspot';
-import { AppMinimize } from '@ionic-native/app-minimize'
+import { AppMinimize } from '@ionic-native/app-minimize';
 
 /**
  * Generated class for the CreatorPage page.
@@ -24,7 +24,7 @@ export class CreatorPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private appMinimize: AppMinimize, private hotspot: Hotspot, public alertCtrl: AlertController) {
     this.platform.registerBackButtonAction(() => {
       this.appMinimize.minimize();
-    });
+    });   
   }
 
   ionViewDidLoad() {

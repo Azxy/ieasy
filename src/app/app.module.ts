@@ -17,6 +17,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from "../pages/login/login";
 import { RewardzPage } from "../pages/rewardz/rewardz";
+import { DatastorageProvider } from '../providers/datastorage/datastorage';
 
 
 
@@ -52,7 +53,8 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     Geolocation,
     NetworkInterface,
     Network,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DatastorageProvider
   ]
 })
 export class

@@ -19,6 +19,8 @@ export class CreatorPage {
 
   data: any = [{ SSID: 'AA' }, { SSID: 'BB' }];
   logs: any = 'started';
+  error: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private appMinimize: AppMinimize, private hotspot: Hotspot, public alertCtrl: AlertController) {
     this.platform.registerBackButtonAction(() => {
       this.appMinimize.minimize();
@@ -26,17 +28,25 @@ export class CreatorPage {
   }
 
   ionViewDidLoad() {
+    this.startHotspot();
+  }
+
+  startHotspot() {
     if (this.platform.is('cordova')) {
-      let SSID = 'Hackthon' + Math.round(Math.random() * 100) + 'Wifi' + Math.round(Math.random() * 100);
+      let SSID = 'ieasy';
       let mode = 'WPA_PSK';
-      let password = Math.round(Math.random() * 100) + 'Gs' + Math.round(Math.random() * 100) + '&@' + Math.round(Math.random() * 100);
+      let password = 'ieasy123';
       this.hotspot.createHotspot(SSID, mode, password)
         .then((response) => {
           this.logs = response;
-          console.log(".........hotspot..........", response);
         });
     }
+  }
 
+  startOpenHotspot() {
+    if (this.platform.is('cordova')) {
+      this.hotspot.startHotspot();
+    }
   }
 
   stopHotspot() {
@@ -44,41 +54,8 @@ export class CreatorPage {
       this.hotspot.stopHotspot()
         .then((response: boolean) => {
           this.logs = response;
-          console.log(".........hotspot..........", response);
         });
     }
   }
-
-  stopHotspot1() {
-      let prompt = this.alertCtrl.create({
-        title: 'Hackton12312@',
-        message: "Enter a name for this new album you're so keen on adding",
-        inputs: [
-          {
-            name: 'title',
-            placeholder: 'Title'
-          },
-        ],
-        buttons: [
-          {
-            text: 'Cancel',
-            handler: data => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'Save',
-            handler: Password => {
-
-              console.log("password", Password.title, 'Hackton12312@');
-              
-
-            }
-          }
-        ]
-      });
-      prompt.present();
-  }
-
 
 }

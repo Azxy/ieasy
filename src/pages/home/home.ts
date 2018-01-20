@@ -12,28 +12,24 @@ import { ConsumerPage } from '../consumer/consumer';
 export class HomePage {
 
   location: any;
+  logs: any;
+  error: any;
 
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {
-    this.getLoc();
   }
 
   getLoc() {
     console.log("<--Entering get location-->");
     this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
-      console.log("resp-->", resp);
       this.location = resp;
+      this.logs = resp;
     }).catch((error) => {
-      console.log('Error getting location', error);
+      this.error = error;
     });
 
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
-      console.log("data-->", data);
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
+      this.logs = data;
     });
   }
 

@@ -4,7 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
-    Latitude {{location?.coords?.latitude}}, Longitude {{location?.coords?.longitude}}
   </ion-navbar>
 
 </ion-header>
@@ -28,5 +27,10 @@
   <p>
     <button ion-button (click)="getLoc()">Get My Location</button>
   </p>
-  
+
+  <p>Latitude: {{location?.coords?.latitude}}</p>
+  <p>Longitude {{location?.coords?.longitude}}</p>
+
+  <p>Log: {{logs|json}}</p>
+  <p>Error: {{error|json}}</p>
 </ion-content>

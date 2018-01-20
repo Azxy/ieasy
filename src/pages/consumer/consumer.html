@@ -17,26 +17,38 @@
 
 
 <ion-content padding>
+  <button ion-button full (click)="scanWifi()">
+      <ion-icon name="wifi"></ion-icon> Seach ieasy Networks
+    </button>
+
   <ion-list>
     <ion-item *ngFor="let x of data" (tap)="selectWifi(x.SSID)">
-      <ion-avatar item-start>
-        <img src="assets/img/logo.png">
-      </ion-avatar>
-      <p>{{x.SSID}}</p>
+      <p>
+        <ion-avatar item-start>
+          <ion-icon name="wifi"></ion-icon>
+        </ion-avatar>
+        {{x.SSID}}
+      </p>
     </ion-item>
-    {{logs | json}}
   </ion-list>
 
 
-   <h4> Selected wifi properties:</h4>
+  <h4> Selected wifi properties:</h4>
 
-  wifiIPAddress:
-  <div *ngIf="wifiIPAddress">{{wifiIPAddress}}</div>
-  <div *ngIf="wifiIPAddress == null">NA</div>
+  <p>
+    Wifi IP Address:
+    <span *ngIf="wifiIPAddress">{{wifiIPAddress | json}}</span>
+    <span *ngIf="wifiIPAddress == null">NA</span>
+  </p>
 
-  carrierIPAddress:
-  <div *ngIf="carrierIPAddress">{{carrierIPAddress}}</div>
-  <div *ngIf="carrierIPAddress == null">NA</div>
+  <p>
+    Carrier IP Address:
+    <span *ngIf="carrierIPAddress">{{carrierIPAddress | json}}</span>
+    <span *ngIf="carrierIPAddress == null">NA</span>
+  </p>
   <!-- <button ion-button full (click)="networkInterfaceAddress()">Get Carrier IP address</button> -->
+
+  <p>Log: {{logs|json}}</p>
+  <p>Error: {{error|json}}</p>
 
 </ion-content>

@@ -84,9 +84,9 @@
     <plugin name="cordova-plugin-networkinterface" spec="^1.2.0" />
     <plugin name="cordova-plugin-hotspot" spec="^1.2.9" />
     <plugin name="cordova-plugin-appminimize" spec="^1.0.0" />
-    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
+    <engine name="android" spec="~7.0.0" />
 </widget>

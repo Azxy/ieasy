@@ -16,7 +16,7 @@ import { RewardzPage } from '../pages/rewardz/rewardz';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -25,13 +25,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Login', component: LoginPage },
+      // { title: 'Login', component: LoginPage },
       { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage },
       { title: 'IEASY Share', component: CreatorPage },
       { title: 'IEASY Connect', component: ConsumerPage },
       { title: 'Rewardz', component: RewardzPage },
-
+      { title: 'Logout', component: LoginPage },
     ];
 
   }

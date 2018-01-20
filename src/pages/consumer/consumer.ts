@@ -18,43 +18,63 @@ import { NetworkInterface } from '@ionic-native/network-interface';
 })
 export class ConsumerPage {
 
-  data: any = [{ SSID: 'AA' }, { SSID: 'BB' }];
+  data: any;
   logs: any = 'started';
-  
-  wifiIPAddress:any;
-  carrierIPAddress:any;
+  error: 'NA';
+
+  wifiIPAddress: any;
+  carrierIPAddress: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-     private platform: Platform, private appMinimize: AppMinimize, 
-     private hotspot: Hotspot, public alertCtrl: AlertController,
-     private networkInterface: NetworkInterface) {
+    private platform: Platform, private appMinimize: AppMinimize,
+    private hotspot: Hotspot, public alertCtrl: AlertController,
+    private networkInterface: NetworkInterface) {
     this.platform.registerBackButtonAction(() => {
       this.appMinimize.minimize();
     });
-    this.networkInterfaceAddress();
   }
 
-  networkInterfaceAddress(){
-   // this.networkInterface.getWiFiIPAddress(function (ip) { alert(ip); });
-   console.log(this.networkInterface.getWiFiIPAddress());
-   console.log(this.networkInterface.getCarrierIPAddress());
-   this.wifiIPAddress=this.networkInterface.getWiFiIPAddress();
-   this.carrierIPAddress=this.networkInterface.getCarrierIPAddress();
-   alert( this.networkInterface.getCarrierIPAddress())
+  networkInterfaceAddress() {
+    this.wifiIPAddress = this.networkInterface.getWiFiIPAddress();
+    this.carrierIPAddress = this.networkInterface.getCarrierIPAddress();
   }
 
   ionViewDidLoad() {
     if (this.platform.is('cordova')) {
-      this.hotspot.scanWifi().then((networks: Array<HotspotNetwork>) => {
-        this.data = networks;
-        this.logs = networks;
-        console.log(".........hotspot..........", JSON.stringify(networks));
-      });
+      this.scanWifi();
     }
+  }
 
+  scanWifi() {
+    this.hotspot.scanWifi().then((networks: Array<HotspotNetwork>) => {
+      this.data = [];
+      networks.forEach((x: any) => {
+        if (x.SSID && x.SSID != "") {
+          this.data.push(x);
+        }
+      });
+      this.logs = networks;
+    });
   }
 
   selectWifi(SSID) {
+    if (this.platform.is('cordova')) {
+      if (SSID === "ieasy") {
+        this.hotspot.connectToWifi(SSID, 'ieasy123')
+          .then((data) => {
+            this.logs = data;
+            alert("Connected Successfully!")
+            this.networkInterfaceAddress();
+          }, (error) => {
+            this.error = error;
+          });
+      } else {
+        this.selectWifi_pass(SSID);
+      }
+    }
+  }
+
+  selectWifi_pass(SSID) {
     if (this.platform.is('cordova')) {
       let prompt = this.alertCtrl.create({
         title: SSID,
@@ -69,21 +89,18 @@ export class ConsumerPage {
           {
             text: 'Cancel',
             handler: data => {
-              console.log('Cancel clicked');
             }
           },
           {
             text: 'Save',
             handler: dataToSave => {
-
-              console.log("password", dataToSave.password, SSID);
+              this.error = dataToSave;
               this.hotspot.connectToWifi(SSID, dataToSave.password)
                 .then((data) => {
-
                   this.logs = data;
-                  console.log(".........hotspot..........", data);
+                  this.networkInterfaceAddress();
                 }, (error) => {
-                  console.log(".........hotspot..........", error);
+                  this.error = error;
                 })
 
             }
@@ -91,7 +108,6 @@ export class ConsumerPage {
         ]
       });
       prompt.present();
-
     }
   }
 

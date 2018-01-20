@@ -17,10 +17,17 @@
 
 
 <ion-content padding>
-  
+  <p>
+    <button ion-button full (click)="startHotspot()">
+      <ion-icon name="wifi"></ion-icon> Start ieasy Share
+    </button>
+  </p>
   <p>
     <button ion-button full (click)="stopHotspot()">
       <ion-icon name="wifi"></ion-icon> Stop ieasy Share
     </button>
   </p>
+
+  <p>Log: {{logs|json}}</p>
+  <p>Error: {{error|json}}</p>
 </ion-content>

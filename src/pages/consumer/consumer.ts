@@ -50,11 +50,15 @@ export class ConsumerPage {
   scanWifi() {
     this.hotspot.scanWifi().then((networks: Array<HotspotNetwork>) => {
       this.data = [];
-      networks.forEach((x: any) => {
-        if (x.SSID && x.SSID != "") {
-          this.data.push(x);
-        }
-      });
+      if (networks && networks.length !== 0) {
+        networks.forEach((x: any) => {
+          if (x.SSID && x.SSID != "") {
+            this.data.push(x);
+          }
+        });
+      } else {
+      this.data = [{SSID: 'ieasy'}]
+      }
       this.logs = networks;
     });
   }

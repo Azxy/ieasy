@@ -16,6 +16,7 @@ export class HomePage {
   error: any;
 
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {
+    this.getLoc();
   }
 
   getLoc() {

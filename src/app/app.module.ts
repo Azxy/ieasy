@@ -11,6 +11,7 @@ import { ListPage } from '../pages/list/list';
 import { ConsumerPage } from '../pages/consumer/consumer';
 import { CreatorPage } from '../pages/creator/creator';
 import { NetworkInterface } from '@ionic-native/network-interface';
+import { Network } from '@ionic-native/network';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -50,6 +51,7 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
     Hotspot,
     Geolocation,
     NetworkInterface,
+    Network,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AppMinimize } from '@ionic-native/app-minimize';
 import { Hotspot } from '@ionic-native/hotspot';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HttpClient } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -11,6 +12,7 @@ import { ListPage } from '../pages/list/list';
 import { ConsumerPage } from '../pages/consumer/consumer';
 import { CreatorPage } from '../pages/creator/creator';
 import { NetworkInterface } from '@ionic-native/network-interface';
+import { Network } from '@ionic-native/network';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +22,7 @@ import { LoginPageModule } from "../pages/login/login.module";
 import { ConsumerPageModule } from "../pages/consumer/consumer.module";
 import { CreatorPageModule } from "../pages/creator/creator.module";
 import { RewardzPageModule } from "../pages/rewardz/rewardz.module";
+import { DatastorageProvider } from '../providers/datastorage/datastorage';
 
 
 
@@ -54,7 +57,10 @@ import { RewardzPageModule } from "../pages/rewardz/rewardz.module";
     Hotspot,
     Geolocation,
     NetworkInterface,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    Network,
+    HttpClient,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DatastorageProvider
   ]
 })
 export class

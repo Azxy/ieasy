@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { DatastorageProvider } from "../../providers/datastorage/datastorage";
 
 import { CreatorPage } from '../creator/creator';
 import { ConsumerPage } from '../consumer/consumer';
@@ -15,8 +16,8 @@ export class HomePage {
   logs: any;
   error: any;
 
-  constructor(public navCtrl: NavController, private geolocation: Geolocation) {
-    this.getLoc();
+  constructor(public navCtrl: NavController, private geolocation: Geolocation, public datastorageProvider: DatastorageProvider) {
+     this.getLoc();
   }
 
   getLoc() {

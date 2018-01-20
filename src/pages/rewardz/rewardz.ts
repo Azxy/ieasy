@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DatastorageProvider } from "../../providers/datastorage/datastorage";
 
 /**
  * Generated class for the RewardzPage page.
@@ -15,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RewardzPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public datastorageProvider: DatastorageProvider) {
   }
 
   ionViewDidLoad() {

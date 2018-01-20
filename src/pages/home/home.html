@@ -14,14 +14,14 @@
   <p>
     <button ion-button full (click)="loadIEasyShare()">IEasy Share</button>
   </p>
-  Total data provided: #### MB
+  Total data provided: {{datastorageProvider.getdataUsed().toFixed(2)}} MB
 
   <h3>Find IEasy Provider</h3>
 
   <p>
     <button ion-button full (click)="loadIEasyConnect()">IEasy Connect</button>
   </p>
-  Total data consumed: #### MB
+  Total data consumed: {{datastorageProvider.getdataCounsumed().toFixed(2)}} MB
 
 
   <p>

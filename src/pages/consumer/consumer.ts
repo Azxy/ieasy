@@ -32,6 +32,8 @@ export class ConsumerPage {
     this.platform.registerBackButtonAction(() => {
       this.appMinimize.minimize();
     });
+
+    this.logs = this.hotspot.getAllHotspotDevices();
   }
 
   networkInterfaceAddress() {
@@ -60,14 +62,16 @@ export class ConsumerPage {
   selectWifi(SSID) {
     if (this.platform.is('cordova')) {
       if (SSID === "ieasy") {
-        this.hotspot.connectToWifi(SSID, 'ieasy123')
-          .then((data) => {
-            this.logs = data;
-            alert("Connected Successfully!")
-            this.networkInterfaceAddress();
-          }, (error) => {
-            this.error = error;
-          });
+        this.hotspot.removeWifiNetwork(SSID).then((data: any) => {
+          this.hotspot.connectToWifi(SSID, 'ieasy123')
+            .then((data) => {
+              this.logs = data;
+              alert("Connected Successfully!")
+              this.networkInterfaceAddress();
+            }, (error) => {
+              this.error = error;
+            });
+        });
       } else {
         this.selectWifi_pass(SSID);
       }
@@ -95,14 +99,15 @@ export class ConsumerPage {
             text: 'Save',
             handler: dataToSave => {
               this.error = dataToSave;
-              this.hotspot.connectToWifi(SSID, dataToSave.password)
-                .then((data) => {
-                  this.logs = data;
-                  this.networkInterfaceAddress();
-                }, (error) => {
-                  this.error = error;
-                })
-
+              this.hotspot.removeWifiNetwork(SSID).then((data: any) => {
+                this.hotspot.connectToWifi(SSID, dataToSave.password)
+                  .then((data) => {
+                    this.logs = data;
+                    this.networkInterfaceAddress();
+                  }, (error) => {
+                    this.error = error;
+                  })
+              });
             }
           }
         ]

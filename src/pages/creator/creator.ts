@@ -43,6 +43,12 @@ export class CreatorPage {
     }
   }
 
+  startOpenHotspot() {
+    if (this.platform.is('cordova')) {
+      this.hotspot.startHotspot();
+    }
+  }
+
   stopHotspot() {
     if (this.platform.is('cordova')) {
       this.hotspot.stopHotspot()

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { DatastorageProvider } from "../../providers/datastorage/datastorage";
 
+import { HomePage } from '../home/home';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -34,4 +36,8 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  login() {
+    // this.showLoading()
+       this.navCtrl.setRoot(HomePage);
+  }
 }

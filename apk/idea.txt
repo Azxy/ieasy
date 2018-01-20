@@ -1,0 +1,41 @@
+
+
+Idea:
+To share the unused mobile data to public.
+
+How:
+
+Data provider:
+User who is willing to give away his unused mobile data will do the following steps:
+	Install and Register to our app.
+	set the amount of data willing to share.
+	
+	
+Data Consumer:
+User who is need of (free) data, he can use available wifi in his area using our app
+	Install and register to our app.
+	If wifi provider is available near, you will get the notification from the app.
+	Get the OTP authendicated
+	
+	
+How app will works:
+if provider switch on the data, app will collect user location and notifiy the other app user, who is inside the wifi cricle.
+
+Moneit
+
+App functions:
+registration
+login
+connect/share data
+view consumed, shared and rewards report
+use cummulative rewards to recharge our mobile, flight tickets, bus tickets, etc.
+
+How to reduce Threads:
+1. If custom rom (os) like lineageOS is detected, then we are restrict those devices.
+2. Authendicated using OTP, so that client risk will be reduced.
+3. Multiple api
+
+How to encourge to share the data:
+2. Win-win situation- how much u share, that much u can consume. So that we use our data in future, no need to worry about expirty
+1. Introducing Rewards mechanism
+

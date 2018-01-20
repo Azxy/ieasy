@@ -16,6 +16,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from "../pages/login/login";
 import { RewardzPage } from "../pages/rewardz/rewardz";
+import { LoginPageModule } from "../pages/login/login.module";
+import { ConsumerPageModule } from "../pages/consumer/consumer.module";
+import { CreatorPageModule } from "../pages/creator/creator.module";
+import { RewardzPageModule } from "../pages/rewardz/rewardz.module";
 
 
 
@@ -23,14 +27,14 @@ import { RewardzPage } from "../pages/rewardz/rewardz";
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    LoginPage,
-    ConsumerPage,
-    CreatorPage,
-    RewardzPage,
+    ListPage
   ],
   imports: [
     BrowserModule,
+    LoginPageModule,
+    ConsumerPageModule,
+    CreatorPageModule,
+    RewardzPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
